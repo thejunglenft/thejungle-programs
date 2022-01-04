@@ -1,0 +1,209 @@
+[
+  {
+    "tokenData": {
+      "name": "Animal #314",
+      "symbol": "JUNGLE",
+      "uri": "https://arweave.net/WN4HkBqUluFnQiHkWAnuM-5ubJt6WtMC9aAvNp7legY",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "share": 0,
+          "address": "AvYMhPzWkyUtf98AsB9zpD6YmBCoZdmt1L64XhJhn8Qa",
+          "verified": true
+        },
+        {
+          "share": 100,
+          "address": "86Go9CeoTmRvfSo821KFjPJbrnd46eYgAxQN8sQn6EVk",
+          "verified": false
+        }
+      ]
+    },
+    "metadata": {
+      "name": "Animal #314",
+      "symbol": "JUNGLE",
+      "description": "1555 pixel animals living on Solana. Lions, Panthers, Rhinos and a lot more...",
+      "seller_fee_basis_points": 500,
+      "image": "https://www.arweave.net/D-zQpJ97TywrHWlBCJ7ZOFKxBh7kEtiCWiiygzfNU54?ext=png",
+      "animation_url": "",
+      "external_url": "https://thejunglenft.com",
+      "attributes": [
+        {
+          "trait_type": "Animal Family",
+          "value": "Monkey"
+        },
+        {
+          "trait_type": "Animal",
+          "value": "Black Chimp"
+        },
+        {
+          "trait_type": "Extra Mouth Item",
+          "value": "Pipe"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Purple"
+        }
+      ],
+      "collection": {
+        "name": "The Jungle",
+        "family": "The Jungle"
+      },
+      "properties": {
+        "files": [
+          {
+            "uri": "https://www.arweave.net/D-zQpJ97TywrHWlBCJ7ZOFKxBh7kEtiCWiiygzfNU54?ext=png",
+            "type": "image/png"
+          }
+        ],
+        "category": "image",
+        "creators": [
+          {
+            "address": "86Go9CeoTmRvfSo821KFjPJbrnd46eYgAxQN8sQn6EVk",
+            "share": 100
+          }
+        ]
+      }
+    },
+    "mint": "5s5J8gQczMeswp8mquyD88VV8iurZPhj6aDjqVbREaZy",
+    "rarity": 2,
+    "faction": 3
+  },
+  {
+    "tokenData": {
+      "name": "Animal #314",
+      "symbol": "JUNGLE",
+      "uri": "https://arweave.net/WN4HkBqUluFnQiHkWAnuM-5ubJt6WtMC9aAvNp7legY",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "share": 0,
+          "address": "AvYMhPzWkyUtf98AsB9zpD6YmBCoZdmt1L64XhJhn8Qa",
+          "verified": true
+        },
+        {
+          "share": 100,
+          "address": "86Go9CeoTmRvfSo821KFjPJbrnd46eYgAxQN8sQn6EVk",
+          "verified": false
+        }
+      ]
+    },
+    "metadata": {
+      "name": "Animal #314",
+      "symbol": "JUNGLE",
+      "description": "1555 pixel animals living on Solana. Lions, Panthers, Rhinos and a lot more...",
+      "seller_fee_basis_points": 500,
+      "image": "https://www.arweave.net/D-zQpJ97TywrHWlBCJ7ZOFKxBh7kEtiCWiiygzfNU54?ext=png",
+      "animation_url": "",
+      "external_url": "https://thejunglenft.com",
+      "attributes": [
+        {
+          "trait_type": "Animal Family",
+          "value": "Monkey"
+        },
+        {
+          "trait_type": "Animal",
+          "value": "Black Chimp"
+        },
+        {
+          "trait_type": "Extra Mouth Item",
+          "value": "Pipe"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Purple"
+        }
+      ],
+      "collection": {
+        "name": "The Jungle",
+        "family": "The Jungle"
+      },
+      "properties": {
+        "files": [
+          {
+            "uri": "https://www.arweave.net/D-zQpJ97TywrHWlBCJ7ZOFKxBh7kEtiCWiiygzfNU54?ext=png",
+            "type": "image/png"
+          }
+        ],
+        "category": "image",
+        "creators": [
+          {
+            "address": "86Go9CeoTmRvfSo821KFjPJbrnd46eYgAxQN8sQn6EVk",
+            "share": 100
+          }
+        ]
+      }
+    },
+    "mint": "CEzYqMcPdQxw7UmhLXuVYgNRxHZY6nD5HBwMzup4RrSZ",
+    "rarity": 1,
+    "faction": 2
+  },
+  {
+    "tokenData": {
+      "name": "Animal #314",
+      "symbol": "JUNGLE",
+      "uri": "https://arweave.net/WN4HkBqUluFnQiHkWAnuM-5ubJt6WtMC9aAvNp7legY",
+      "sellerFeeBasisPoints": 500,
+      "creators": [
+        {
+          "share": 0,
+          "address": "AvYMhPzWkyUtf98AsB9zpD6YmBCoZdmt1L64XhJhn8Qa",
+          "verified": true
+        },
+        {
+          "share": 100,
+          "address": "86Go9CeoTmRvfSo821KFjPJbrnd46eYgAxQN8sQn6EVk",
+          "verified": false
+        }
+      ]
+    },
+    "metadata": {
+      "name": "Animal #314",
+      "symbol": "JUNGLE",
+      "description": "1555 pixel animals living on Solana. Lions, Panthers, Rhinos and a lot more...",
+      "seller_fee_basis_points": 500,
+      "image": "https://www.arweave.net/D-zQpJ97TywrHWlBCJ7ZOFKxBh7kEtiCWiiygzfNU54?ext=png",
+      "animation_url": "",
+      "external_url": "https://thejunglenft.com",
+      "attributes": [
+        {
+          "trait_type": "Animal Family",
+          "value": "Monkey"
+        },
+        {
+          "trait_type": "Animal",
+          "value": "Black Chimp"
+        },
+        {
+          "trait_type": "Extra Mouth Item",
+          "value": "Pipe"
+        },
+        {
+          "trait_type": "Background",
+          "value": "Purple"
+        }
+      ],
+      "collection": {
+        "name": "The Jungle",
+        "family": "The Jungle"
+      },
+      "properties": {
+        "files": [
+          {
+            "uri": "https://www.arweave.net/D-zQpJ97TywrHWlBCJ7ZOFKxBh7kEtiCWiiygzfNU54?ext=png",
+            "type": "image/png"
+          }
+        ],
+        "category": "image",
+        "creators": [
+          {
+            "address": "86Go9CeoTmRvfSo821KFjPJbrnd46eYgAxQN8sQn6EVk",
+            "share": 100
+          }
+        ]
+      }
+    },
+    "mint": "CmPLZ56eQsQ6TFA5i6nSNFToGdyKmtyYe5zUgMtcDk8X",
+    "rarity": 0,
+    "faction": 1
+  }
+]
