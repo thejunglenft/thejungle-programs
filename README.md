@@ -16,3 +16,20 @@ The Staking module lets holders of the Jungle NFTs deposit their tokens in a pro
 The Lottery module lets users spend $ANIMAL to participate in a weekly lottery, where the winning pot is the royalties collected during the week. It lets users:
 - Participate by spending $ANIMAL on their favorite Faction of the Jungle. A player can spend $ANIMAL on every faction in any quantity desired. However all spending are final and can never be withdrawn. The collected amount is pooled back in the rewards. Participations are reset every week when a new round begins.
 - Collect rewards of the round that just finished. Rewards can be collected at any time after the round finished and the winning faction has been drawn. The total amount available to collect depends on what was present in the pot, minus all outstanding withdrawals of players who did not claim their rewards. This amount is shared between all the players that spent tokens in this faction.
+
+## Usage
+
+### Staking
+
+This program needs the following value to be defined:
+- A starting date.
+- A weekly rewards rate.
+- The maximum value for rarity. Anything above will be considered as the max rarity.
+- The maximum multiplier for rarity, in basis points.
+
+### Lottery
+
+This program needs the following value to be defined:
+- The period of the lottery
+
+Make sure to give the lottery enough SOL BEFORE the lottery round starts, as it cannot be refilled once the round has started.  

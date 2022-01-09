@@ -85,7 +85,13 @@ pub fn handler(ctx: Context<NewLotteryRound>, bump: u8) -> ProgramResult {
     lottery_round.bump = bump;
     lottery_round.index = lottery.last_round;
     lottery_round.start = lottery.last_timestamp;
-    lottery_round.pot = ctx.accounts.escrow.try_lamports()? - lottery.unclaimed_pot;
+    lottery_round.pot = ctx
+        .accounts
+        .escrow
+        .try_lamports()?
+        .checked_sub(lottery.unclaimed_pot)
+        .or(Some(0_u64))
+        .unwrap();
 
     lottery.unclaimed_pot = ctx.accounts.escrow.try_lamports()?;
 

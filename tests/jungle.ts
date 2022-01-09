@@ -44,29 +44,29 @@ describe("jungle", () => {
     start: new BN(Math.round(Date.now() / 1000)),
   };
 
-  before(async () => {
-    await airdropUsers([state.owner, state.staker], provider);
-    const mintInfo = await mintAndTransferRewards(
-      provider,
-      program.programId,
-      state.jungleKey,
-      state.owner,
-      604800
-    );
-    state.mintRewards = mintInfo.mint;
-    const nfts = await merkleCollection(
-      state.owner,
-      state.numberOfNfts,
-      provider
-    );
-    state.mints = nfts.mints;
-    state.tree = nfts.tree;
-  });
+  // before(async () => {
+  //   await airdropUsers([state.owner, state.staker], provider);
+  //   const mintInfo = await mintAndTransferRewards(
+  //     provider,
+  //     program.programId,
+  //     state.jungleKey,
+  //     state.owner,
+  //     604800
+  //   );
+  //   state.mintRewards = mintInfo.mint;
+  //   const nfts = await merkleCollection(
+  //     state.owner,
+  //     state.numberOfNfts,
+  //     provider
+  //   );
+  //   state.mints = nfts.mints;
+  //   state.tree = nfts.tree;
+  // });
 
-  testInitializeJungle(state, provider);
-  testSetJungle(state, provider);
-  testWithdrawRewards(state, provider);
-  testStakeAnimal(state, provider);
-  testUnstakeAnimal(state, provider);
-  testClaimRewards(state, provider);
+  // testInitializeJungle(state, provider);
+  // testSetJungle(state, provider);
+  // testWithdrawRewards(state, provider);
+  // testStakeAnimal(state, provider);
+  // testUnstakeAnimal(state, provider);
+  // testClaimRewards(state, provider);
 });

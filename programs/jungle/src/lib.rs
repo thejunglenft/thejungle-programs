@@ -8,7 +8,7 @@ pub mod merkle_proof;
 
 use instructions::*;
 
-declare_id!("BUYunJ87627cz8icXE7LCqjekd7kcoRE6GszhQN51kBD");
+declare_id!("8XgPs7DNb7jvZqu5Y6zbF1idvrXnLtHZK4kVGKALd9fS");
 
 #[program]
 mod jungle {

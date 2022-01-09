@@ -19,10 +19,34 @@ import { buildLeaves } from "../tests/helpers";
 import { MerkleTree } from "../tests/helpers/merkleTree";
 
 import key from "../key.json";
+import config from "../config.json";
 import { Jungle, IDL as JungleIDL } from "../target/types/jungle";
 import { Lottery, IDL as LotteryIDL } from "../target/types/lottery";
 import jungleIdl from "../target/idl/jungle.json";
 import lotteryIdl from "../target/idl/lottery.json";
+
+const factionToNumber = (faction: string) => {
+  switch (faction) {
+    case "Sarengti":
+      return 1;
+    case "Amphibian":
+      return 2;
+    case "Reptile":
+      return 3;
+    case "Misfit":
+      return 4;
+    case "Bird":
+      return 5;
+    case "Monkey":
+      return 6;
+    case "Carnivore":
+      return 7;
+    case "Mythic":
+      return 8;
+    default:
+      throw new Error("unknown faction")
+  }
+};
 
 const initialiaze = async (endpoint: string) => {
   if (!endpoint) throw new Error("Missing endpoint argument");
@@ -65,21 +89,21 @@ const initialiaze = async (endpoint: string) => {
     provider
   );
 
-  // EDIT THESE VARIABLES FOR YOUR PROJECT
+  // EDIT THE `config.json` FILE
   const jungleKey = Keypair.generate().publicKey;
   const lotteryKey = Keypair.generate().publicKey;
-  const totalSupply = new BN(8700000);
-  const maxMultiplier = new BN(20000);
-  const maxRarity = new BN(2); // TODO: Set for mainnet
-  const baseWeeklyEmissions = new BN(80000).mul(new BN(10 ** 9));
-  const lotteryPeriod = new BN(1800); // TODO: Set for mainnet
-  const start = new BN(Math.round(Date.now() / 1000)); // TODO: Set for mainnet
+  const totalSupply = new BN(config.totalSupply);
+  const maxMultiplier = new BN(config.maxMultiplier);
+  const maxRarity = new BN(config.maxRarity);
+  const baseWeeklyEmissions = new BN(config.weeklyRewards).mul(new BN(10 ** 9));
+  const lotteryPeriod = new BN(config.lotteryPeriod);
+  const start = new BN(config.start);
 
   const leaves = buildLeaves(
     mints.map((e, i) => ({
       mint: new PublicKey(e.mint),
       rarity: e.rarity,
-      faction: e.faction,
+      faction: factionToNumber(e.faction),
     }))
   );
   const tree = new MerkleTree(leaves);
@@ -173,7 +197,10 @@ const initialiaze = async (endpoint: string) => {
     rewards,
     wallet.payer,
     [],
-    totalSupply.mul(new BN(10 ** 9)).div(new BN(2)).toNumber()
+    totalSupply
+      .mul(new BN(10 ** 9))
+      .div(new BN(2))
+      .toNumber()
   );
   console.log("Gave rewards to the Jungle");
 
@@ -187,7 +214,11 @@ const initialiaze = async (endpoint: string) => {
     lotteryProgram.programId
   );
   const [round, roundBump] = await PublicKey.findProgramAddress(
-    [Buffer.from("round", "utf8"), lotteryKey.toBuffer(), new BN(0).toBuffer("le", 8)],
+    [
+      Buffer.from("round", "utf8"),
+      lotteryKey.toBuffer(),
+      new BN(0).toBuffer("le", 8),
+    ],
     lotteryProgram.programId
   );
 

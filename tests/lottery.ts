@@ -10,10 +10,10 @@ describe("Lottery", () => {
   const provider = Provider.local();
   setProvider(provider);
 
-  // testInitializeLottery(provider);
-  // testSetLottery(provider);
-  // testNewLotteryRound(provider);
-  // testParticipate(provider);
-  // testUpdateParticipation(provider);
-  // testClaimParticipation(provider);
+  testInitializeLottery(provider);
+  testSetLottery(provider);
+  testNewLotteryRound(provider);
+  testParticipate(provider);
+  testUpdateParticipation(provider);
+  testClaimParticipation(provider);
 });

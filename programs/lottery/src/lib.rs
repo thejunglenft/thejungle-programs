@@ -7,7 +7,7 @@ pub mod instructions;
 
 use instructions::*;
 
-declare_id!("GY3Tud9wJT6xnFigp67eNrNsQEdqPh9R71C4Y83uGJFf");
+declare_id!("6LUNT8JqxCKFw7u1R1PP2wgDTdgYskwGGFK1azVuzJZC");
 
 #[program]
 mod lottery {
