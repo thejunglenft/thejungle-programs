@@ -175,6 +175,7 @@ const initialize = async (network: string) => {
       maxRarity,
       maxMultiplier,
       baseWeeklyEmissions,
+      start,
       tree.getRootArray(),
       {
         accounts: {

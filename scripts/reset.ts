@@ -85,7 +85,7 @@ const reset = async (network: string) => {
   // Create the reward token
   const mintRewards = new Token(
     connection,
-    deployments[network].jungleRewardMint,
+    new PublicKey(deployments[network].jungleRewardMint),
     TOKEN_PROGRAM_ID,
     wallet.payer
   );
@@ -144,133 +144,42 @@ const reset = async (network: string) => {
   console.log("Jungle:", jungleAddress.toString());
   console.log("Escrow:", escrow.toString());
 
-  try {
-    const bumps = {
-      jungle: jungleBump,
-      escrow: escrowBump,
-      rewards: rewardsBump,
-    };
-
-    await jungleProgram.rpc.initializeJungle(
-      bumps,
-      maxRarity,
-      maxMultiplier,
-      baseWeeklyEmissions,
-      start,
-      tree.getRootArray(),
-      {
-        accounts: {
-          jungleKey: jungleKey,
-          jungle: jungleAddress,
-          escrow: escrow,
-          mint: mintRewards.publicKey,
-          rewardsAccount: rewards,
-          owner: wallet.payer.publicKey,
-          tokenProgram: TOKEN_PROGRAM_ID,
-          rent: SYSVAR_RENT_PUBKEY,
-          systemProgram: SystemProgram.programId,
-        },
-        signers: [wallet.payer],
-      }
-    );
-  } catch (err) {
-    console.log("Jungle already existed? Trying to set it instead...");
-    console.log(err);
-    await jungleProgram.rpc.setJungle(
-      maxRarity,
-      maxMultiplier,
-      baseWeeklyEmissions,
-      tree.getRootArray(),
-      {
-        accounts: {
-          jungle: jungleAddress,
-          owner: wallet.payer.publicKey,
-          newOwner: wallet.payer.publicKey,
-        },
-        signers: [wallet.payer],
-      }
-    );
-  }
-
-  // Mint the supply to the owner
-  const ownerAccount = await mintRewards.getOrCreateAssociatedAccountInfo(
-    wallet.publicKey
+  await jungleProgram.rpc.setJungle(
+    maxRarity,
+    maxMultiplier,
+    baseWeeklyEmissions,
+    start,
+    tree.getRootArray(),
+    {
+      accounts: {
+        jungle: jungleAddress,
+        owner: wallet.payer.publicKey,
+        newOwner: wallet.payer.publicKey,
+      },
+      signers: [wallet.payer],
+    }
   );
-  await mintRewards.mintTo(
-    ownerAccount.address,
-    wallet.payer,
-    [],
-    totalSupply.mul(new BN(10 ** 9)).toNumber()
-  );
-
-  // Send token to the distributor
-  await mintRewards.transfer(
-    ownerAccount.address,
-    rewards,
-    wallet.payer,
-    [],
-    totalSupply
-      .mul(new BN(10 ** 9))
-      .div(new BN(2))
-      .toNumber()
-  );
-  console.log("Gave rewards to the Jungle");
 
   // Initialize the lottery
   const [lotteryAddress, lotteryBump] = await PublicKey.findProgramAddress(
     [Buffer.from("lottery", "utf8"), lotteryKey.toBuffer()],
     lotteryProgram.programId
   );
-  const [lotteryEscrow, lotteryEscrowBump] = await PublicKey.findProgramAddress(
-    [Buffer.from("escrow", "utf8"), lotteryKey.toBuffer()],
-    lotteryProgram.programId
-  );
-  const [round, roundBump] = await PublicKey.findProgramAddress(
-    [
-      Buffer.from("round", "utf8"),
-      lotteryKey.toBuffer(),
-      new BN(0).toBuffer("le", 8),
-    ],
-    lotteryProgram.programId
-  );
 
-  try {
-    const bumps = {
-      lottery: lotteryBump,
-      escrow: lotteryEscrowBump,
-      round: roundBump,
-    };
-
-    await lotteryProgram.rpc.initializeLottery(bumps, lotteryPeriod, start, {
+  await lotteryProgram.rpc.setLottery(
+    start,
+    wallet.payer.publicKey,
+    mintRewards.publicKey,
+    rewards,
+    lotteryPeriod,
+    {
       accounts: {
-        lotteryKey: lotteryKey,
         lottery: lotteryAddress,
-        lotteryRound: round,
-        escrow: lotteryEscrow,
-        mint: mintRewards.publicKey,
-        treasury: rewards,
         owner: wallet.payer.publicKey,
-        rent: SYSVAR_RENT_PUBKEY,
-        systemProgram: SystemProgram.programId,
       },
       signers: [wallet.payer],
-    });
-  } catch (err) {
-    await lotteryProgram.rpc.setLottery(
-      start,
-      wallet.payer.publicKey,
-      mintRewards.publicKey,
-      rewards,
-      lotteryPeriod,
-      {
-        accounts: {
-          lottery: lotteryAddress,
-          owner: wallet.payer.publicKey,
-        },
-        signers: [wallet.payer],
-      }
-    );
-  }
+    }
+  );
 };
 
 reset(process.argv[2]);
