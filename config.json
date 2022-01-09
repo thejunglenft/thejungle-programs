@@ -3,6 +3,6 @@
     "maxMultiplier": 25000,
     "maxRarity": 1250,
     "weeklyRewards": 80000,
-    "lotteryPeriod": 43200,
-    "start": 1641401520
+    "lotteryPeriod": 604800,
+    "start": 1641772800
 }

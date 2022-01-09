@@ -52,7 +52,7 @@ const factionToNumber = (faction: string) => {
  * Initializes a Jungle staking and a lottery paid with staking rewards
  * @param network The network to which the program is deployed
  */
-const initialize = async (network: string) => {
+const reset = async (network: string) => {
   if (network !== "devnet" && network !== "mainnet")
     throw new Error("Missing network argument");
 
@@ -75,14 +75,19 @@ const initialize = async (network: string) => {
   });
   setProvider(provider);
 
+  let deployments = JSON.parse(
+    fs.readFileSync("./deployments.json").toString()
+  );
+
+  if (!Object.keys(deployments).includes(network))
+    throw new Error("No previous deployments for this network");
+
   // Create the reward token
-  const mintRewards = await Token.createMint(
+  const mintRewards = new Token(
     connection,
-    wallet.payer,
-    wallet.payer.publicKey,
-    null,
-    9,
-    TOKEN_PROGRAM_ID
+    deployments[network].jungleRewardMint,
+    TOKEN_PROGRAM_ID,
+    wallet.payer
   );
 
   const jungleProgram = new Program<Jungle>(
@@ -97,8 +102,8 @@ const initialize = async (network: string) => {
   );
 
   // EDIT THE `config.json` FILE
-  const jungleKey = Keypair.generate().publicKey;
-  const lotteryKey = Keypair.generate().publicKey;
+  const jungleKey = new PublicKey(deployments[network].jungleKey);
+  const lotteryKey = new PublicKey(deployments[network].lotteryKey);
   const totalSupply = new BN(config.totalSupply);
   const maxMultiplier = new BN(config.maxMultiplier);
   const maxRarity = new BN(config.maxRarity);
@@ -266,23 +271,6 @@ const initialize = async (network: string) => {
       }
     );
   }
-
-  let deployments = {};
-  try {
-    deployments = JSON.parse(fs.readFileSync("./deployments.json").toString());
-  } catch (err) {}
-
-  deployments[network] = {
-    jungleProgram: jungleIdl.metadata.address.toString(),
-    jungleKey: jungleKey.toString(),
-    jungleEscrowKey: escrow.toString(),
-    jungleRewardMint: mintRewards.publicKey.toString(),
-    lotteryProgram: lotteryIdl.metadata.address.toString(),
-    lotteryKey: lotteryKey.toString(),
-    lotteryEscrowKey: lotteryEscrow.toString(),
-  };
-
-  fs.writeFileSync("./deployments.json", JSON.stringify(deployments, null, 2));
 };
 
-initialize(process.argv[2]);
+reset(process.argv[2]);

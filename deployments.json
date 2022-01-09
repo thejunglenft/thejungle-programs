@@ -1,0 +1,11 @@
+{
+  "mainnet": {
+    "jungleProgram": "8XgPs7DNb7jvZqu5Y6zbF1idvrXnLtHZK4kVGKALd9fS",
+    "jungleKey": "CRKdpEtK7wkyLNNk1uXEBMSWkYbH2Arni9V3GWeHVZYk",
+    "jungleEscrowKey": "3U7RqBk3xUUkm5DtCMrPkcTgwcGSBuN949zhCw96BEdu",
+    "jungleRewardMint": "5DHwE19mnvKm1j71eLZ8P5gDsc6m1MyPJxoJuKmPvrqo",
+    "lotteryProgram": "6LUNT8JqxCKFw7u1R1PP2wgDTdgYskwGGFK1azVuzJZC",
+    "lotteryKey": "22Py81kKNtSvkYBYUuE7419LcmeA6siUJifUxinVZiqS",
+    "lotteryEscrowKey": "65dhKKXK1K1vaHXiev5cNMTWwoSL1nJABB63kDZnx2gj"
+  }
+}

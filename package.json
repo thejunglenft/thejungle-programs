@@ -2,8 +2,10 @@
     "scripts": {
         "deploy:mainnet": "anchor deploy --provider.cluster mainnet --provider.wallet ./key.json",
         "deploy:devnet": "anchor deploy --provider.cluster devnet --provider.wallet ./key.json",
-        "initialize:mainnet": "ts-node scripts/initialize.ts https://api.mainnet-beta.solana.com",
-        "initialize:devnet": "ts-node scripts/initialize.ts https://api.devnet.solana.com",
+        "initialize:mainnet": "ts-node scripts/initialize.ts mainnet",
+        "initialize:devnet": "ts-node scripts/initialize.ts devnet",
+        "reset:mainnet": "ts-node scripts/set.ts mainnet",
+        "reset:devnet": "ts-node scripts/set.ts devnet",
         "transfer:mainnet": "ts-node scripts/transferRewards.ts https://api.mainnet-beta.solana.com 4000000000000000",
         "transfer:devnet": "ts-node scripts/transferRewards.ts https://api.devnet.solana.com 4000000000000000",
         "pot:mainnet": "ts-node scripts/transferPot.ts https://api.mainnet-beta.solana.com 1000000000",
