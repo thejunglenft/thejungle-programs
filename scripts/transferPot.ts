@@ -5,10 +5,7 @@ import {
   setProvider,
   web3,
   Wallet,
-  Idl,
 } from "@project-serum/anchor";
-import { BN } from "@project-serum/anchor";
-import { Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PublicKey } from "@solana/web3.js";
 
 import key from "../key.json";
