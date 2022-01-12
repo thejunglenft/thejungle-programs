@@ -2,7 +2,7 @@
     "totalSupply": 8700000,
     "maxMultiplier": 25000,
     "maxRarity": 1250,
-    "weeklyRewards": 80000,
+    "weeklyRewards": 0,
     "lotteryPeriod": 604800,
     "start": 1641859200
 }

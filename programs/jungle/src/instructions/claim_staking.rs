@@ -89,7 +89,7 @@ pub fn handler(ctx: Context<ClaimStaking>) -> ProgramResult {
     let multiplier = 10000 + (jungle.maximum_rarity_multiplier - 10000) * rarity / jungle.maximum_rarity;
     let seconds_elapsed = ctx.accounts.clock.unix_timestamp - animal.last_claim;
     let weekly_emissions = jungle.base_weekly_emissions * multiplier / 10000;
-    let rewards_amount = weekly_emissions * (seconds_elapsed as u64) / 604800 / jungle.animals_staked;
+    let rewards_amount = weekly_emissions * (seconds_elapsed as u64) / 604800;
     
     animal.last_claim = ctx.accounts.clock.unix_timestamp;
 
