@@ -7,5 +7,14 @@
     "lotteryProgram": "6LUNT8JqxCKFw7u1R1PP2wgDTdgYskwGGFK1azVuzJZC",
     "lotteryKey": "2w6hdN1jfHxF44ksb4ZGnf3NQxujNjbRZc62xwP4RBk2",
     "lotteryEscrowKey": "9JD6smAtLAZ75Ry5md3tGRzwGJ7AiSxDx6n53yVwXiJy"
+  },
+  "devnet": {
+    "jungleProgram": "8XgPs7DNb7jvZqu5Y6zbF1idvrXnLtHZK4kVGKALd9fS",
+    "jungleKey": "5hK2LfyynZTf76yYbJZUWDtksxTkLxumoeWTLXDpfhjo",
+    "jungleEscrowKey": "DN6T7zXJFqWyBqE3dXihf5YggRsa426aPqsAgVHQ3dAD",
+    "jungleRewardMint": "FrymUed59DCKRvcg1FAfN293A3HNcT7kABGEWdHmy7Ef",
+    "lotteryProgram": "6LUNT8JqxCKFw7u1R1PP2wgDTdgYskwGGFK1azVuzJZC",
+    "lotteryKey": "ENKhxKwwaQgrkmg4xatYV8jG7bemRsZS5f7uySDaiQuu",
+    "lotteryEscrowKey": "FpoTE9HPGAgL4kL2rMZczV3ED35rJnEbtbm9f4VoSWc1"
   }
 }

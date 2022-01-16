@@ -62,7 +62,7 @@ const reset = async (network: string) => {
     endpoint = "https://api.devnet.solana.com";
     mints = JSON.parse(fs.readFileSync("./assets/devnetMints.json").toString());
   } else if (network === "mainnet") {
-    endpoint = "https://api.mainnet-beta.solana.com";
+    endpoint = "https://ssc-dao.genesysgo.net";
     mints = JSON.parse(
       fs.readFileSync("./assets/mainnetMints.json").toString()
     );
