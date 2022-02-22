@@ -13,6 +13,7 @@ pub struct WithdrawRewards<'info> {
         ],
         bump = jungle.bumps.jungle,
         has_one = rewards_account,
+        has_one = owner
     )]
     pub jungle: Account<'info, Jungle>,
 
